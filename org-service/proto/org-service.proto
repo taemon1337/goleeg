@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package orgservice;
+
+option go_package = "./proto;orgservice";
+
+service OrgService {
+	rpc Create(Request) returns (Response) {}
+	rpc Delete(Request) returns (Response) {}
+	rpc List(Request) returns (Response) {}
+}
+
+message Options {
+	string namespace = 1;
+}
+
+message Message {
+	string say = 1;
+}
+
+message Request {
+	string name = 1;
+	Options options = 2;
+}
+
+message Response {
+	string msg = 1;
+	string created = 2;
+}
